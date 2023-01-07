@@ -1,0 +1,29 @@
+.about {
+  position: relative;
+  margin-top: 5rem;
+}
+
+.cards {
+  margin-top: 5rem;
+  margin-bottom: 5rem;
+}
+
+.card-body {
+  box-shadow: 10px 10px 8px #888888;
+}
+
+.img1 {
+  width: 100%;
+}
+
+.card-title {
+  padding-bottom: 1rem;
+}
+
+.card-text {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  padding-top: 2rem;
+}

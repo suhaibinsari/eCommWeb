@@ -1,0 +1,56 @@
+.section {
+  margin-top: 5rem;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+.section > .left-text {
+  display: flex;
+  flex-direction: column;
+  font-weight: bolder;
+  line-height: 4rem;
+  width: 60%;
+  margin-bottom: 10rem;
+}
+.vpn {
+  font-size: 4em;
+  margin-bottom: 1em;
+  line-height: normal;
+}
+.h1-eng {
+  font-size: 4rem;
+  width: 100%;
+}
+
+.exc {
+  font-size: 1.3rem;
+  margin-top: -4rem;
+}
+.money-back {
+  font-size: 0.8rem;
+}
+.btn1 {
+  background-color: #4caf50;
+  border: none;
+  border-radius: 50em;
+  color: white;
+  padding: 0.1rem 9rem;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+.btn1:hover {
+  transition: 0.2s;
+  background-color: yellow;
+  color: black;
+}
+.section > .right-img {
+  display: flex;
+  justify-content: flex-end;
+  height: 40rem;
+  width: 50%;
+}
