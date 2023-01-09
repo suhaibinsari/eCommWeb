@@ -11,4 +11,7 @@ class PagesController < ApplicationController
   def product_page
   end
 
+  def catagory_page
+  end
+
 end

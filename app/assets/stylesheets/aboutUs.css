@@ -1,6 +1,9 @@
 .about {
   position: relative;
-  margin-top: 5rem;
+  width: 80%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .cards {
@@ -8,12 +11,19 @@
   margin-bottom: 5rem;
 }
 
-.card-body {
-  box-shadow: 10px 10px 8px #888888;
+.card:hover {
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  transition: 0.3s;
+  width: 16rem;
 }
 
 .img1 {
-  width: 100%;
+  width: 60%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .card-title {
@@ -26,4 +36,18 @@
   justify-content: center;
   align-items: center;
   padding-top: 2rem;
+}
+
+.ware-title {
+  text-align: center;
+  font-size: 3rem;
+  padding-bottom: 1rem;
+}
+
+.ware-text{
+  text-align: center;
+  padding-top: 1rem;
+  width: 60%;
+  margin-left: auto;
+  margin-right: auto;
 }

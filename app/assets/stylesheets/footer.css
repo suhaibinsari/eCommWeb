@@ -1,3 +1,11 @@
 .space{
   padding-top: 30rem;
+
+}
+.footer{
+  position: sticky;
+display: flex;
+flex-direction: row-reverse;
+justify-content: center;
+align-items: flex-end;
 }
