@@ -233,7 +233,7 @@ DEPENDENCIES
   capybara
   contact_us (~> 1.0.1)
   debug
-  devise (~> 4.8)
+  devise (~> 4.8, >= 4.8.1)
   font-awesome-rails (~> 4.7, >= 4.7.0.8)
   importmap-rails
   jbuilder

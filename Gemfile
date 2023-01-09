@@ -71,7 +71,7 @@ group :test do
   gem "webdrivers"
 end
 
-gem "devise", "~> 4.8"
+gem 'devise', '~> 4.8', '>= 4.8.1'
 gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.8'
 gem 'mail_form', '~> 1.9'
 

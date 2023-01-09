@@ -1,7 +1,19 @@
 .signUp{
-    border: 2px solid black;
     position: relative;
     background-color: white;
     width:100%; margin:0 auto;
     height: 100%;
+    
 }
+
+.signInTxt {
+    margin-top: 0rem;
+      /* position: absolute; */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding-top: 60px;
+  margin-bottom: 0;
+      
+  }
+  
