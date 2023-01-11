@@ -1,0 +1,19 @@
+<div class="p">
+
+<h1>Product Page</h1>
+
+<%= @products.each do |p| %>
+
+<p>
+<%= p.label :title %><br />
+<%= p.text_field :title%>
+</p>
+
+<p>
+<%= p.label :description %><br />
+<%= p.text_field :description%>
+</p>
+
+<%end%>
+
+</div>

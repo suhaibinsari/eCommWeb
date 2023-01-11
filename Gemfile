@@ -51,6 +51,13 @@ gem "bootsnap", require: false
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
+    gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  # Adds support for Capybara system testing and selenium driver
+  gem 'capybara'
+  gem 'selenium-webdriver'
+  gem 'better_errors', '~> 2.4'
+  gem 'guard', '~> 2.14', '>= 2.14.1'
+  gem 'guard-livereload', '~> 2.5', '>= 2.5.2'
 end
 
 group :development do
@@ -74,5 +81,10 @@ end
 gem 'devise', '~> 4.8', '>= 4.8.1'
 gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.8'
 gem 'mail_form', '~> 1.9'
-
 gem 'contact_us', '~> 1.0.1'
+
+gem 'bulma-rails', '~> 0.6.1'
+gem 'simple_form', '~> 5.1'
+gem 'gravatar_image_tag', '~> 1.2'
+gem 'carrierwave'
+gem 'mini_magick'

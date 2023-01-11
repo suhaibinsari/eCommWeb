@@ -1,5 +1,5 @@
+<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 <div class="logIn">
-  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <h2 class="logInTxt" >Log in</h2>
   <section class="vh-100">
     <div class="container py-5 h-100">
@@ -34,7 +34,6 @@
                     <div class="actions">
                       <%= f.submit "Log in", data: {turbo: false}, class:"btn btn-primary btn-lg btn-block" %>
                     </div>
-                    <% end %>
                       <br>
                   <%= render "devise/shared/links" %>
           </form>
@@ -43,3 +42,4 @@
     </div>
   </section>
 </div>
+<% end %>
