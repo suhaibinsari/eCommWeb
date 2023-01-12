@@ -1,6 +1,25 @@
-.abc{
-    position: relative;
-}
+.contact{
+  position: relative;
+  background-color: white;
+  width:70%; margin:0 auto;
+  margin-top: 10rem;
+  border-radius: 2rem;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  height: 55rem;
+  }
+
+  .contactTxt {
+    margin-top: 0rem;
+      /* position: absolute; */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding-top: 60px;
+  margin-bottom: 0;
+      
+  }
+
+
 
 input[type=text], select, textarea {
     width: 100%; /* Full width */
@@ -10,7 +29,8 @@ input[type=text], select, textarea {
     box-sizing: border-box; /* Make sure that padding and width stays in place */
     margin-top: 6px; /* Add a top margin */
     margin-bottom: 16px; /* Bottom margin */
-    resize: vertical /* Allow the user to vertically resize the textarea (not horizontally) */
+    resize: vertical; /* Allow the user to vertically resize the textarea (not horizontally) */
+    
   }
   
   /* Style the submit button with a specific background color etc */
@@ -31,6 +51,5 @@ input[type=text], select, textarea {
   /* Add a background color and some padding around the form */
   .con{
     border-radius: 5px;
-    background-color: #f2f2f2;
-    padding: 20px;
+    background-color: transparent;    padding: 20px;
   }
