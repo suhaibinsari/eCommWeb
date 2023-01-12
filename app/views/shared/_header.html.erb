@@ -2,7 +2,7 @@
   <nav class="navbar navbar-expand-lg navbar-light" style="background">
     <div class="container-fluid d-flex justify-content-center">
       <div class="logo-btn">
-         <%= image_tag "logo.png", class:"logo" %>
+        <%= image_tag "logo.png" , class:"logo" %>
       </div>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -14,9 +14,9 @@
           <li class="nav-item">
             <%= link_to "Home" , root_path, class:"nav-link active"%>
           </li>
-            <li class="nav-item">
+          <li class="nav-item">
             <%= link_to "Product Page" , products_path, class:"nav-link active"%>
-          </li> 
+          </li>
           <li class="nav-item">
             <%= link_to "About Us" , about_path, class:"nav-link active"%>
           </li>
@@ -33,20 +33,22 @@
         </ul>
 
         <form class="button">
-        <% if user_signed_in? %>
-        <div>
-                <%= link_to 'Account', edit_user_registration_path, class: "navbar-link" %>
-                <div class="navbar-dropdown is-right">
-                  <%= link_to current_user.name, edit_user_registration_path, class:"navbar-item" %>
-                </div>
-          <%= link_to "Sign out", destroy_user_session_path, data: { turbo_method: :delete }, class:"btn btn-success btn-2" %> 
-        <%else%>
+          <% if user_signed_in? %>
+            <div class="dropdown">
+              <a class="btn btn-primary dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                data-bs-toggle="dropdown" aria-expanded="false">
+                Account Info
+              </a>
 
-          <%= link_to "Sign in" , new_user_session_path, class:"btn btn-transparent"  %>
-          <%= link_to " Sign up", new_user_registration_path, class:"btn btn-success btn-2" %>
-          <%end%>
-
-
+              <ul class="dropdown-menu w-25 bg-transparent" aria-labelledby="dropdownMenuLink">
+                <li><%= link_to current_user.email, edit_user_registration_path, class:"dropdown-item"%> </li>
+                <li><%= link_to "Sign out", destroy_user_session_path, data: { turbo_method: :delete }, class:"dropdown-item"%> </li>
+              </ul>
+            </div>
+            <%else%>
+              <%= link_to "Sign in" , new_user_session_path, class:"btn btn-transparent" %>
+                <%= link_to " Sign up" , new_user_registration_path, class:"btn btn-success btn-2" %>
+            <%end%>
         </form>
       </div>
     </div>

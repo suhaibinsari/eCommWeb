@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_01_11_100108) do
+ActiveRecord::Schema[7.0].define(version: 2023_01_12_143019) do
   create_table "brands", force: :cascade do |t|
     t.string "name"
     t.text "body"
@@ -20,10 +20,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_11_100108) do
 
   create_table "cart_items", force: :cascade do |t|
     t.integer "quantity"
-    t.integer "carts_id"
+    t.integer "cart_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["carts_id"], name: "index_cart_items_on_carts_id"
+    t.index ["cart_id"], name: "index_cart_items_on_cart_id"
   end
 
   create_table "carts", force: :cascade do |t|
@@ -39,6 +39,16 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_11_100108) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "comments", force: :cascade do |t|
+    t.string "description"
+    t.integer "users_id", null: false
+    t.integer "products_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["products_id"], name: "index_comments_on_products_id"
+    t.index ["users_id"], name: "index_comments_on_users_id"
+  end
+
   create_table "products", force: :cascade do |t|
     t.string "title"
     t.string "description"
@@ -46,7 +56,12 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_11_100108) do
     t.integer "cart_items_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "category_id"
+    t.integer "brand_id"
+    t.integer "user_id"
+    t.string "image"
     t.index ["cart_items_id"], name: "index_products_on_cart_items_id"
+    t.index ["user_id"], name: "index_products_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -61,4 +76,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_11_100108) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "comments", "products", column: "products_id"
+  add_foreign_key "comments", "users", column: "users_id"
+  add_foreign_key "products", "users"
 end

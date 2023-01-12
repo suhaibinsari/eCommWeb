@@ -1,19 +1,24 @@
 <div class="p">
-
 <h1>Product Page</h1>
 
-<%= @products.each do |p| %>
-
-<p>
-<%= p.label :title %><br />
-<%= p.text_field :title%>
-</p>
-
-<p>
-<%= p.label :description %><br />
-<%= p.text_field :description%>
-</p>
-
-<%end%>
-
+<table class="table">
+    <thead>
+        <tr>
+            <th>title: </th>
+            <th>Discription: </th>
+            <th>Price: </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <% @products.each do |product| %>
+                <td><%= product.title %></td>
+                <td><%= product.description %></td>
+                <td><%= product.price %></td>
+                <td><%= form%></td>
+            <% end %>
+        </tr>
+    </tbody>
+    <%= link_to "create new", new_product_path%>
+</table>
 </div>

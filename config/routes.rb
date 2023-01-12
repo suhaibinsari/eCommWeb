@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   resources :cart_items
   resources :carts
   resources :categories
-  resources :products ,      only: [:index, :show, :create]
+  resources :products 
   
 
   get 'about'=> 'pages#about_us'

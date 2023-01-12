@@ -1,5 +1,5 @@
 <div class="p">
-<h1>Category Page</h1>
+<h1>Cart Page</h1>
 
 
 <table>
@@ -12,9 +12,9 @@
     </thead>
     <tbody>
         <tr>
-            <% @categories.each do |category| %>
-                <td><%= category.name %></td>
-                <td><%= category.body %></td>
+            <% @cart_items.each do |cart_item| %>
+                <td><%= cart_item.name %></td>
+                <td><%= cart_item.body %></td>
                 
             <% end %>
         </tr>

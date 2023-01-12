@@ -4,4 +4,6 @@ class Product < ApplicationRecord
     belongs_to :category
     belongs_to :user
     belongs_to :brand
+    belongs_to :cart_item
+    
 end
