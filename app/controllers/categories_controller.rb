@@ -14,8 +14,7 @@ class CategoriesController < ApplicationController
  
   def create
     @category = Category.new(category_params)
-    @category.user = current_user
-    puts category_params
+    # @category.user = current_user
       if @category.save!
         redirect_to categories_path
      else
@@ -40,7 +39,6 @@ class CategoriesController < ApplicationController
   
   def destroy
     Category.find(params[:id]).destroy
-    puts "================#{params[:id]}====================="
     redirect_to categories_path, notice: "Category deleted successfully"
   end
 

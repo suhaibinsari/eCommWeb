@@ -1,36 +1,9 @@
 <div class="productNew">
 
-  <h2 class="productTxt">Add a Category</h2>
-
-  <div class="container">
-    <div class="row align-items-center justify-content-center">
-      <div class="col-6">
-        <%= form_with model: @category do |c| %>
+<h2 class="productTxt">Add a Category</h2>
 
 
-          <p>
-            <%= c.label :Category, class:"form-label" %><br />
-              <%= c.select :category_id, Category.all.map{|p| [p.name, p.id]}, options:{class: "pe-2" } %>
-                <%= c.select :brand_id, Brand.all.map{|p| [p.name, p.id]} %>
-
-          </p>
-
-          <p>
-            <%= c.label :name, class:"form-label" %><br />
-              <%= c.text_field :name, class:"form-control"%>
-          </p>
-
-          <p>
-            <%= c.label :body, class:"form-label" %><br />
-              <%= c.text_field :body, class:"form-control"%>
-          </p>
-
-          <%= c.submit %>
-
-            <% end %>
-      </div>
-    </div>
-  </div>
+<%= render "form", category: @category %>
 
 
-  <div>
+</div>

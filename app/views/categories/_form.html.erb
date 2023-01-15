@@ -1,47 +1,27 @@
-<%= form_with(model: category) do |c| %>
-  <% if category.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(category.errors.count, "error") %> prohibited this category from being saved:</h2>
+  <div class="container">
+    <div class="row align-items-center justify-content-center">
+      <div class="col-6">
+        <%= form_with model: category do |c| %>
+          <p>
+            <%= c.label :Category, class:"form-label" %><br />
+             
+          </p>
 
-      <ul>
-        <% category.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
+          <p>
+            <%= c.label :name, class:"form-label" %><br />
+              <%= c.text_field :name, class:"form-control"%>
+              
+          </p>
+
+          <p>
+            <%= c.label :body, class:"form-label" %><br />
+              <%= c.text_field :body, class:"form-control"%>
+          </p>
+
+          <%= c.submit %>
+
+            <% end %>
+      </div>
     </div>
-  <% end %>
+  </div>
 
-  <div class="field form-group">
-    <% c.label :First_name, style: "display: block" %>
-    <%= c.text_field :First_name, class:"form-control",placeholder:"First Name" %>
-  </div>
-<br>
-  <div class="field form-group">
-    <% c.label :Last_name, style: "display: block" %>
-    <%= c.text_field :Last_name,class:"form-control",placeholder:"Last Name" %>
-  </div>
-<br>
-  <div class="field form-group">
-    <% c.label :Email, style: "display: block" %>
-    <%= c.text_field :Email,class:"form-control",placeholder:"Email" %>
-  </div>
-<br>
-  <div class="field form-group">
-    <% c.label :Phone, style: "display: block" %>
-    <%= c.text_field :Phone,class:"form-control",placeholder:"Phone" %>
-  </div>
-<br>
-  <div class="field form-group">
-    <% form.label :Twitter, style: "display: block" %>
-    <%= form.text_field :Twitter,class:"form-control",placeholder:"Twitter" %>
-  </div>
-  <br>
-    <div class="field form-group">
-    <% c.label :Twitter, style: "display: block" %>
-    <%= c.number_field :user_id, id: :friend_user_id ,class:"form-control", value: current_user.id, type: :hidden%>
-  </div>
-<br>
-  <div>
-    <%= c.submit class:"btn btn-danger mt-3" %>
-  </div>
-<% end %>

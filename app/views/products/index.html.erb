@@ -1,7 +1,8 @@
 <div class="p">
 <h1>Product Page</h1>
+<% if user_signed_in? %>
 <%= link_to "create new", new_product_path, class: "btn btn-primary mb-4" %>
-
+<%end%>
 <table class="table table-striped table-bordered table-hover"> 
 <thead > 
 <tr class="table-dark">
@@ -9,22 +10,26 @@
   <th scope="col">Name :</th>
   <th scope="col">Description :</th>
   <th scope="col">Price :</th>
-  <th scope="col">Products : </th>
   <th scope="col"></th>
-
+    <% if user_signed_in? %>
+  <th scope="col">Products : </th>
+  <%end%>
+  <th scope="col"></th>
 </tr>
 </thead>
-
 <tbody>
 <% @products.each do |product| %>
-
   <tr>
 
   <td><%=product.title%></td>
   <td><%=product.description%></td>
   <td><%=product.price%></td>
-  <td><%= link_to  product.title, product %><td>
 
+  <td></td>
+  <% if user_signed_in? %>
+
+  <td><%= link_to  product.title, product %><td>
+<%end%>
 
   </tr>
     <%end%>
