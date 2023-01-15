@@ -1,0 +1,24 @@
+<div class="p">
+
+<h2>Show Product</h2>
+
+<table class="table table-striped table-bordered table-hover"> 
+<thead > 
+<tr class="table-dark">
+ 
+  <th scope="col">Name : <%= @product.title%></th>
+  <th scope="col">Body : <%= @product.description%></th>
+  <th scope="col">Body : <%= @product.price%></th>
+  <th scope="col"><%= link_to "Edit", edit_product_path(@product) %></th>
+
+   <th><%= link_to "Destroy", product_path(@product), data: {
+                    turbo_method: :delete,
+                    turbo_confirm: "Are you sure?"
+                  } %></th>
+
+</tr>
+</thead>
+</table>
+
+
+</div>

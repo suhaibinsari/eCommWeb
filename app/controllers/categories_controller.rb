@@ -2,25 +2,48 @@ class CategoriesController < ApplicationController
   def index
     @categories = Category.all
    end
- 
    
-   def new
+  def show
+    @category = Category.find(params[:id])
+
+  end
+  
+  def new
      @category = Category.new
-     @brands = Brand.all
-   end
+  end
  
-   def create
-     @category = Category.new(category_params)
-     
-     if @category.save
-       respond_to do |format|
-         format.turbo_stream { render 'index'}
-       end
+  def create
+    @category = Category.new(category_params)
+    @category.user = current_user
+    puts category_params
+      if @category.save!
+        redirect_to categories_path
      else
        render :new
      end
-   end
+  end
    
+  def edit
+    @category = Category.find(params[:id])
+  end
+
+  def update
+    @category = Category.find(params[:id])
+
+    if @category.update(category_params)
+      redirect_to @category
+    else
+      render :edit, status: :unprocessable_entity
+    end
+  end
+
+  
+  def destroy
+    Category.find(params[:id]).destroy
+    puts "================#{params[:id]}====================="
+    redirect_to categories_path, notice: "Category deleted successfully"
+  end
+
    private
  
      def category_params

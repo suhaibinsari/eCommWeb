@@ -1,23 +1,33 @@
 <div class="p">
 <h1>Category Page</h1>
+<%= link_to "create new", new_category_path, class: "btn btn-primary mb-4" %>
+
+<table class="table table-striped table-bordered table-hover"> 
+<thead > 
+<tr class="table-dark">
+ 
+  <th scope="col">Name :</th>
+  <th scope="col">Body :</th>
+  
+</tr>
+</thead>
+
+<tbody>
+<% @categories.each do |category| %>
+
+  <tr>
+
+  <td><%=category.name%></td>
+  <td><%=category.body%></td>
+
+  </tr>
+    <%end%>
 
 
-<table>
-    <thead>
-        <tr>
-            <th>title: </th>
-            <th>Discription: </th>
-            <th>Price: </th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <% @categories.each do |category| %>
-                <td><%= category.name %></td>
-                <td><%= category.body %></td>
-                
-            <% end %>
-        </tr>
-    </tbody>
+</tbody>
 </table>
+
+
+
+
 </div>

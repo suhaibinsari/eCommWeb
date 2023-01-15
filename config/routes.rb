@@ -18,5 +18,5 @@ Rails.application.routes.draw do
   # get 'catagory' => 'pages#catagory_page'
   # get 'home/index'
   # get 'home' => 'home#index'
-  root "home#index"
+  root "products#index"
 end

@@ -10,7 +10,35 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_01_12_143019) do
+ActiveRecord::Schema[7.0].define(version: 2023_01_15_073939) do
+  create_table "active_storage_attachments", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "record_type", null: false
+    t.bigint "record_id", null: false
+    t.bigint "blob_id", null: false
+    t.datetime "created_at", null: false
+    t.index ["blob_id"], name: "index_active_storage_attachments_on_blob_id"
+    t.index ["record_type", "record_id", "name", "blob_id"], name: "index_active_storage_attachments_uniqueness", unique: true
+  end
+
+  create_table "active_storage_blobs", force: :cascade do |t|
+    t.string "key", null: false
+    t.string "filename", null: false
+    t.string "content_type"
+    t.text "metadata"
+    t.string "service_name", null: false
+    t.bigint "byte_size", null: false
+    t.string "checksum"
+    t.datetime "created_at", null: false
+    t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
+  end
+
+  create_table "active_storage_variant_records", force: :cascade do |t|
+    t.bigint "blob_id", null: false
+    t.string "variation_digest", null: false
+    t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
+  end
+
   create_table "brands", force: :cascade do |t|
     t.string "name"
     t.text "body"
@@ -23,13 +51,17 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_12_143019) do
     t.integer "cart_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "products_id"
     t.index ["cart_id"], name: "index_cart_items_on_cart_id"
+    t.index ["products_id"], name: "index_cart_items_on_products_id"
   end
 
   create_table "carts", force: :cascade do |t|
     t.integer "total"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "users_id"
+    t.index ["users_id"], name: "index_carts_on_users_id"
   end
 
   create_table "categories", force: :cascade do |t|
@@ -49,18 +81,23 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_12_143019) do
     t.index ["users_id"], name: "index_comments_on_users_id"
   end
 
+  create_table "product_imgs", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "products", force: :cascade do |t|
     t.string "title"
     t.string "description"
     t.integer "price"
-    t.integer "cart_items_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "category_id"
     t.integer "brand_id"
     t.integer "user_id"
     t.string "image"
-    t.index ["cart_items_id"], name: "index_products_on_cart_items_id"
+    t.integer "product_imgs_id"
+    t.index ["product_imgs_id"], name: "index_products_on_product_imgs_id"
     t.index ["user_id"], name: "index_products_on_user_id"
   end
 
@@ -76,7 +113,12 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_12_143019) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "cart_items", "products", column: "products_id"
+  add_foreign_key "carts", "users", column: "users_id"
   add_foreign_key "comments", "products", column: "products_id"
   add_foreign_key "comments", "users", column: "users_id"
+  add_foreign_key "products", "product_imgs", column: "product_imgs_id"
   add_foreign_key "products", "users"
 end

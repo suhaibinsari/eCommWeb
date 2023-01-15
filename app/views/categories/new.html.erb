@@ -1,38 +1,36 @@
 <div class="productNew">
-<form>
-  <div class="mb-3">
-    <label for="exampleInputEmail1" class="form-label">Email address</label>
-    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-    <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+
+  <h2 class="productTxt">Add a Category</h2>
+
+  <div class="container">
+    <div class="row align-items-center justify-content-center">
+      <div class="col-6">
+        <%= form_with model: @category do |c| %>
+
+
+          <p>
+            <%= c.label :Category, class:"form-label" %><br />
+              <%= c.select :category_id, Category.all.map{|p| [p.name, p.id]}, options:{class: "pe-2" } %>
+                <%= c.select :brand_id, Brand.all.map{|p| [p.name, p.id]} %>
+
+          </p>
+
+          <p>
+            <%= c.label :name, class:"form-label" %><br />
+              <%= c.text_field :name, class:"form-control"%>
+          </p>
+
+          <p>
+            <%= c.label :body, class:"form-label" %><br />
+              <%= c.text_field :body, class:"form-control"%>
+          </p>
+
+          <%= c.submit %>
+
+            <% end %>
+      </div>
+    </div>
   </div>
-  <div class="mb-3">
-    <label for="exampleInputPassword1" class="form-label">Password</label>
-    <input type="password" class="form-control" id="exampleInputPassword1">
-  </div>
-  <div class="mb-3 form-check">
-    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-    <label class="form-check-label" for="exampleCheck1">Check me out</label>
-  </div>
-  <button type="submit" class="btn btn-primary">Submit</button>
-</form>
-<div>
 
 
-
-<%= form_with model: @category, remote: false do |c| %>
-
-<p>
-<%= c.label :name %><br />
-<%= c.text_field :name%>
-</p>
-
-<p>
-<%= c.label :body %><br />
-<%= c.text_field :body %>
-</p>
-
-
-
-<%= c.submit %>
-
-<% end %>
+  <div>

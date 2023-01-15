@@ -1,9 +1,8 @@
 class Product < ApplicationRecord
     
-    validates :title, :description, presence: true, length: {minimum: 3, maximum: 50}
+    validates :title, :description, presence: true
     belongs_to :category
     belongs_to :user
     belongs_to :brand
-    belongs_to :cart_item
-    
+    has_one_attached :avatar    
 end
