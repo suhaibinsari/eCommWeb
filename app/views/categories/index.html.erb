@@ -1,8 +1,13 @@
 <div class="p">
 <h1>Category Page</h1>
 <% if user_signed_in? %>
-<%= link_to "create new", new_category_path, class: "btn btn-primary mb-4" %>
+
+<%= link_to "Create New Catagory", new_category_path, class: "btn btn-primary mb-4" %>
+<%= link_to "Brands", brands_path, class: "btn btn-primary mb-4" %>
+          
 <%end%>
+
+
 <table class="table table-striped table-bordered table-hover"> 
 <thead > 
 <tr class="table-dark">

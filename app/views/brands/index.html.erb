@@ -1,23 +1,37 @@
 <div class="p">
 <h1>Brand Page</h1>
+<% if user_signed_in? %>
+<%= link_to "create new", new_brand_path, class: "btn btn-primary mb-4" %>
+<%end%>
+<table class="table table-striped table-bordered table-hover"> 
+<thead > 
+<tr class="table-dark">
+ 
+  <th scope="col">Name :</th>
+  <th scope="col">Body :</th>   
+    <% if user_signed_in? %>
+  <th scope="col">Brands : </th>
+    <%end%>
+    <th scope="col"></th>
+</tr>
+</thead>
+<tbody>
+<% @brands.each do |brand| %>
+  <tr>
 
+  <td><%=brand.name%></td>
+  <td><%=brand.body%></td>
+  <% if user_signed_in? %>
 
-<table>
-    <thead>
-        <tr>
-            <th>title: </th>
-            <th>Discription: </th>
-            <th>Price: </th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <% @brands.each do |brand| %>
-                <td><%= brand.name %></td>
-                <td><%= brand.body %></td>
-                
-            <% end %>
-        </tr>
-    </tbody>
+  <td><%= link_to  brand.name, brand %><td> 
+  <%end%>
+
+  </tr>
+  <%end%>
+</tbody>
 </table>
+
+
+
+
 </div>

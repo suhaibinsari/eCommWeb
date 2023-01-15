@@ -10,11 +10,11 @@
   <th scope="col">Name :</th>
   <th scope="col">Description :</th>
   <th scope="col">Price :</th>
-  <th scope="col"></th>
+   
     <% if user_signed_in? %>
   <th scope="col">Products : </th>
-  <%end%>
-  <th scope="col"></th>
+    <%end%>
+    <th scope="col"></th>
 </tr>
 </thead>
 <tbody>
@@ -24,17 +24,14 @@
   <td><%=product.title%></td>
   <td><%=product.description%></td>
   <td><%=product.price%></td>
-
-  <td></td>
   <% if user_signed_in? %>
 
-  <td><%= link_to  product.title, product %><td>
-<%end%>
+  <td><%= link_to  product.title, product %><td> 
+  <%end%>
+  
 
   </tr>
-    <%end%>
-
-
+  <%end%>
 </tbody>
 </table>
 
