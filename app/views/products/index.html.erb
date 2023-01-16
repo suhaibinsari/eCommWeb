@@ -1,5 +1,6 @@
 <div class="p">
 <h1>Product Page</h1>
+<h3 class="">All Products <%= Product.public_count %></h3>
 <% if user_signed_in? %>
 <%= link_to "create new", new_product_path, class: "btn btn-primary mb-4" %>
 <%end%>
@@ -19,16 +20,23 @@
 </thead>
 <tbody>
 <% @products.each do |product| %>
+
+
   <tr>
 
-  <td><%=product.title%></td>
-  <td><%=product.description%></td>
-  <td><%=product.price%></td>
-  <% if user_signed_in? %>
+  <% unless product.archived? %>
 
-  <td><%= link_to  product.title, product %><td> 
-  <%end%>
+    <td><%=product.title%></td>
+    <td><%=product.description%></td>
+    <td><%=product.price%></td>
+    <% if user_signed_in? %>
+
+      <td><%= link_to  product.title, product %><td> 
+ 
   
+    <%end%>
+ <% end %>
+
 
   </tr>
   <%end%>

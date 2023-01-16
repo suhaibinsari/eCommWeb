@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_01_15_073939) do
+ActiveRecord::Schema[7.0].define(version: 2023_01_16_092105) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -73,12 +73,13 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_15_073939) do
 
   create_table "comments", force: :cascade do |t|
     t.string "description"
-    t.integer "users_id", null: false
-    t.integer "products_id", null: false
+    t.integer "user_id", null: false
+    t.integer "product_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["products_id"], name: "index_comments_on_products_id"
-    t.index ["users_id"], name: "index_comments_on_users_id"
+    t.string "status"
+    t.index ["product_id"], name: "index_comments_on_product_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
   create_table "product_imgs", force: :cascade do |t|
@@ -97,6 +98,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_15_073939) do
     t.integer "user_id"
     t.string "image"
     t.integer "product_imgs_id"
+    t.string "status"
     t.index ["product_imgs_id"], name: "index_products_on_product_imgs_id"
     t.index ["user_id"], name: "index_products_on_user_id"
   end
@@ -117,8 +119,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_15_073939) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "cart_items", "products", column: "products_id"
   add_foreign_key "carts", "users", column: "users_id"
-  add_foreign_key "comments", "products", column: "products_id"
-  add_foreign_key "comments", "users", column: "users_id"
+  add_foreign_key "comments", "products"
+  add_foreign_key "comments", "users"
   add_foreign_key "products", "product_imgs", column: "product_imgs_id"
   add_foreign_key "products", "users"
 end

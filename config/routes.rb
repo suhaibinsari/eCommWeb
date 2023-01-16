@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   resources :carts
   resources :categories
   resources :products 
+  resources :comments
   
 
   get 'about'=> 'pages#about_us'

@@ -11,11 +11,13 @@ class ProductsController < ApplicationController
     @product = Product.new
     @brands = Brand.all
     @category = Category.all
+    @comment = Comment.all
   end
 
   def create
     @product = Product.new(product_params)
     @product.user = current_user
+    # @product.save!
 
     if @product.save!
       redirect_to products_path
@@ -50,7 +52,7 @@ class ProductsController < ApplicationController
   private
 
     def product_params
-      params.require(:product).permit(:title, :description, :price, :category_id, :brand_id, :cart_id, :product_imgs_id)
+      params.require(:product).permit(:title, :description, :price, :category_id, :brand_id, :cart_id, :product_imgs_id, :status)
     end
 
   end

@@ -5,6 +5,7 @@
 <table class="table table-striped table-bordered table-hover"> 
 <thead > 
 <tr class="table-dark">
+
  
   <th scope="col">Name : <%= @product.title%></th>
   <th scope="col">Body : <%= @product.description%></th>
@@ -20,5 +21,9 @@
 </thead>
 </table>
 
+<h2>Comments</h2>
+<%= render @product.comments %>
 
+<h2>Add a comment:</h2>
+<%= render 'comments/form' %>
 </div>
