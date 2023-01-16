@@ -6,10 +6,20 @@
 <thead > 
 <tr class="table-dark">
 
- 
+
+  <th scope="col"> 
+  
+  <%if @product.profile_image.attached?%>
+
+  <%= image_tag(@product.profile_image, size: '250x250') %>
+
+  <%end%>
+  
+  </th>
+
   <th scope="col">Name : <%= @product.title%></th>
   <th scope="col">Body : <%= @product.description%></th>
-  <th scope="col">Body : <%= @product.price%></th>
+  <th scope="col">Price : <%= @product.price%></th>
   <th scope="col"><%= link_to "Edit", edit_product_path(@product) %></th>
 
    <th><%= link_to "Destroy", product_path(@product), data: {

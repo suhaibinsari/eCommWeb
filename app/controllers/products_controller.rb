@@ -1,4 +1,7 @@
 class ProductsController < ApplicationController
+
+  # http_basic_authenticate_with name: "dhh", password: "secret", except: [:index, :show]
+
   def index
    @products = Product.all
   end
@@ -18,7 +21,7 @@ class ProductsController < ApplicationController
     @product = Product.new(product_params)
     @product.user = current_user
     # @product.save!
-
+byebug
     if @product.save!
       redirect_to products_path
     else
@@ -52,7 +55,7 @@ class ProductsController < ApplicationController
   private
 
     def product_params
-      params.require(:product).permit(:title, :description, :price, :category_id, :brand_id, :cart_id, :product_imgs_id, :status)
+      params.require(:product).permit(:title, :description, :price, :category_id, :brand_id, :cart_id, :profile_image, :status)
     end
 
   end

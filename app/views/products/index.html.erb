@@ -7,6 +7,7 @@
 <table class="table table-striped table-bordered table-hover"> 
 <thead > 
 <tr class="table-dark">
+  <th scope="col">Image :</th>
  
   <th scope="col">Name :</th>
   <th scope="col">Description :</th>
@@ -25,6 +26,16 @@
   <tr>
 
   <% unless product.archived? %>
+
+
+    <td>
+    
+      <%if product.profile_image.attached?%>
+
+  <%= image_tag(product.profile_image, size: '250x250') %>
+
+  <%end%>
+    </td>
 
     <td><%=product.title%></td>
     <td><%=product.description%></td>

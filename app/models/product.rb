@@ -6,7 +6,7 @@ class Product < ApplicationRecord
     belongs_to :category
     belongs_to :user
     belongs_to :brand
-    has_one_attached :avatar  
+    has_one_attached :profile_image  
     has_many :comments, dependent: :destroy
 
   

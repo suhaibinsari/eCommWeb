@@ -9,13 +9,13 @@
   <strong>Comment:</strong>
   <%= comment.description %>
 </p>
-<% if user_signed_in? %>
+    <% if user_signed_in? && current_user.id == comment.user.id  %>
 
-<p>
-    <%= link_to "Destroy Comment", comment_path(comment), data: {
-                  turbo_method: :delete,
-                  turbo_confirm: "Are you sure?"
-                } %>
-  </p>
+    <p>
+        <%= link_to "Destroy Comment", comment_path(comment), data: {
+                    turbo_method: :delete,
+                    turbo_confirm: "Are you sure?"
+                    } %>
+    </p>
+    <%end%>
 <%end%>
-  <%end%>

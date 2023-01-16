@@ -1,4 +1,7 @@
 class CommentsController < ApplicationController
+
+    # http_basic_authenticate_with name: "dhh", password: "secret", except: [:index, :show]
+
     def create
         @user = current_user
         @product = Product.find(params[:comment][:product_id])
