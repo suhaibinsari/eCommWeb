@@ -1,55 +1,60 @@
 class CartItemsController < ApplicationController
   
-     def index
-      @cartItems = CartItem.all
+  def index
+    @cart_items = CartItem.all
+   end
+ 
+   def show
+     @cartItem = CartItem.find(params[:id])
+   end
+ 
+   def new
+     @cartItem = CartItem.new
+     @brands = Brand.all
+     @category = Category.all
+     @comment = Comment.all
+   end
+ 
+   def create
+     @cartItem = CartItem.new(cartItem_params)
+     @product.user = current_user
+     # @product.save!
+ 
+     if @product.save!
+       redirect_to products_path
+     else
+       render :new
      end
-   
-     def show
-       @cartItem = CartItem.find(params[:id])
+   end
+ 
+ 
+   def edit
+     @product = Product.find(params[:id])
+   end
+ 
+   def update
+     @product = Product.find(params[:id])
+ 
+     if @product.update(cartItem_params)
+       redirect_to @product
+     else
+       render :edit, status: :unprocessable_entity
      end
+   end
+ 
    
-     def new
-       @cartItem = CartItem.new
+   def destroy
+     Product.find(params[:id]).destroy
+     redirect_to products_path, notice: "Product deleted successfully"
+ 
+   end
+ 
+   
+   private
+ 
+     def cartItem_params
+       params.require(:cartItem).permit(:quantity, :cart_id)
      end
-   
-     def create
-       @cartItem = CartItem.new(cart_item_params)
-       @cartItem.user = current_user
-       puts cart_item_params
-       if @cartItem.save!
-         redirect_to products_path
-       else
-         render :new
-       end
-     end
-   
-   
-     def edit
-       @cartItem = CartItem.find(params[:id])
-     end
-   
-     def update
-       @cartItem = CartItem.find(params[:id])
-   
-       if @cartItem.update(cart_item_params)
-         redirect_to @cartItem
-       else
-         render :edit, status: :unprocessable_entity
-       end
-     end
-   
-     
-     def destroy
-      CartItem.find(params[:id]).destroy
-       puts "================#{params[:id]}====================="
-       redirect_to cart_items_path, notice: "Product deleted successfully"
-     end
-   
-     
-     private
-   
-       def product_params
-         params.require(:cart_items).permit(:quantity)
-       end
+ 
 
 end

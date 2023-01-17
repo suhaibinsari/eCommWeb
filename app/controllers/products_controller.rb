@@ -21,7 +21,7 @@ class ProductsController < ApplicationController
     @product = Product.new(product_params)
     @product.user = current_user
     # @product.save!
-byebug
+
     if @product.save!
       redirect_to products_path
     else

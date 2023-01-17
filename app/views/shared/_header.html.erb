@@ -20,7 +20,7 @@
             <%= link_to "Catagory" , categories_path, class:"nav-link active"%>
           </li>
           <li class="nav-item">
-            <%= link_to "Contact Us" , contact_path, class:"nav-link active"%>
+            <%= link_to "Contact Us" , new_contact_path, class:"nav-link active"%>
           </li>
 
           <li class="nav-item">
@@ -28,15 +28,15 @@
           </li>
         </ul>
 
-        <form class="button">
+        <form class="button me-3">
           <% if user_signed_in? %>
             <div class="dropdown">
-              <a class="btn btn-primary dropdown-toggle pe-5" href="#" role="button" id="dropdownMenuLink"
+              <a class="btn btn-primary dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
                 data-bs-toggle="dropdown" aria-expanded="false">
                 Account Info
               </a>
 
-              <ul class="dropdown-menu w-25 bg-transparent" aria-labelledby="dropdownMenuLink">
+              <ul class="dropdown-menu bg-transparent" aria-labelledby="dropdownMenuLink">
                 <li><%= link_to current_user.email, edit_user_registration_path, class:"dropdown-item"%> </li>
                 <li><%= link_to "Sign out", destroy_user_session_path, data: { turbo_method: :delete }, class:"dropdown-item"%> </li>
               </ul>

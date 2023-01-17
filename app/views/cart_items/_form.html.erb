@@ -1,0 +1,27 @@
+  <div class="container">
+    <div class="row align-items-center justify-content-center">
+      <div class="col-6">
+        <%= form_with model: category do |c| %>
+          <p>
+            <%= c.label :Category, class:"form-label" %><br />
+             
+          </p>
+
+          <p>
+            <%= c.label :name, class:"form-label" %><br />
+              <%= c.text_field :name, class:"form-control"%>
+              
+          </p>
+
+          <p>
+            <%= c.label :body, class:"form-label" %><br />
+              <%= c.text_field :body, class:"form-control"%>
+          </p>
+
+          <%= c.submit %>
+
+            <% end %>
+      </div>
+    </div>
+  </div>
+
