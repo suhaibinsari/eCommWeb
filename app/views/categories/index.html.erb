@@ -1,47 +1,30 @@
 <div class="p">
-<h1>Category Page</h1>
-<% if user_signed_in? %>
-
-<%= link_to "Create New Catagory", new_category_path, class: "btn btn-primary mb-4" %>
-<%= link_to "Brands", brands_path, class: "btn btn-primary mb-4" %>
-          
-<%end%>
-
-
-<table class="table table-striped table-bordered table-hover"> 
-<thead > 
-<tr class="table-dark">
- 
-  <th scope="col">Name :</th>
-  <th scope="col">Body :</th>
-   <% if user_signed_in? %>
-  <th scope="col">Category : </th>
-  <%end%>
-    <th scope="col"> </th>
-
-  
-</tr>
-</thead>
-
-<tbody>
-<% @categories.each do |category| %>
-
-  <tr>
-
-  <td><%=category.name%></td>
-  <td><%=category.body%></td>
-   <% if user_signed_in? %>
-  <td><%= link_to  category.name, category %><td>
-  <%end%>
-
-  </tr>
+  <h1>Category Page</h1>
+    <% if user_signed_in? %>
+    <%= link_to "Create New Catagory", new_category_path, class: "btn btn-primary mb-4" %>
+    <%= link_to "Brands", brands_path, class: "btn btn-primary mb-4" %>        
     <%end%>
-
-
-</tbody>
-</table>
-
-
-
-
+  <table class="table table-striped table-bordered table-hover"> 
+    <thead > 
+      <tr class="table-dark">
+        <th scope="col">Name :</th>
+        <th scope="col">Body :</th>
+        <% if user_signed_in? %>
+        <th scope="col">Category : </th>
+        <%end%>
+          <th scope="col"> </th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @categories.each do |category| %>
+      <tr>
+      <td><%=category.name%></td>
+      <td><%=category.body%></td>
+         <% if user_signed_in? %>
+      <td><%= link_to  category.name, category %><td>
+         <%end%>
+      </tr>
+        <%end%>
+    </tbody>
+  </table>
 </div>

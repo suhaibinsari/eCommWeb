@@ -17,70 +17,47 @@
     </div>
 </section>
 <div class="p">
-<h1>Product Page</h1>
-<h3 class="">All Products <%= Product.public_count %></h3>
-<% if user_signed_in? %>
-<%= link_to "create new", new_product_path, class: "btn btn-primary mb-4" %>
-<%end%>
-<table class="table table-striped table-bordered table-hover"> 
-<thead > 
-<tr class="table-dark">
-  <th scope="col">Image :</th>
- 
-  <th scope="col">Name :</th>
-  <th scope="col">Description :</th>
-  <th scope="col">Price :</th>
-   
-    <% if user_signed_in? %>
-  <th scope="col">Products : </th>
-    <%end%>
-    <th scope="col"></th>
-</tr>
-</thead>
-<tbody>
-<% @products.each do |product| %>
-
-
-  <tr>
-
-  <% unless product.archived? %>
-
-
-    <td>
-    
-      <%if product.profile_image.attached?%>
-
-  <%= image_tag(product.profile_image, size: '250x250') %>
-
+  <h1>Product Page</h1>
+  <h3 class="">All Products <%= Product.public_count %></h3>
+  <% if user_signed_in? %>
+  <%= link_to "create new", new_product_path, class: "btn btn-primary mb-4" %>
   <%end%>
-    </td>
-
-    <td><%=product.title%></td>
-    <td><%=product.description%></td>
-    <td><%=product.price%></td>
-    <td>
-    <%= form_with(url: cart_add_path) do |f| %>
-      <%= f.hidden_field :id, value: product.id %>
-      <%= f.number_field :quantity, value: 0, min: 1 %>
-      <%= f.submit "Add To Cart" %>
-    <% end %>
-    
-    </td>
-    <% if user_signed_in? %>
-
-      <td><%= link_to  product.title, product %><td> 
- 
-  
-    <%end%>
- <% end %>
-
-
-  </tr>
-  <%end%>
-</tbody>
-</table>
-
-
-
-
+    <table class="table table-striped table-bordered table-hover"> 
+        <thead > 
+          <tr class="table-dark">
+            <th scope="col">Image :</th>
+            <th scope="col">Name :</th>
+            <th scope="col">Description :</th>
+            <th scope="col">Price :</th>
+              <% if user_signed_in? %>
+            <th scope="col">Products : </th>
+              <%end%>
+              <th scope="col"></th>
+          </tr>
+        </thead>
+      <tbody>
+        <% @products.each do |product| %>
+        <tr>
+          <% unless product.archived? %>
+            <td>
+              <%if product.profile_image.attached?%>
+              <%= image_tag(product.profile_image, size: '250x250') %>
+              <%end%>
+            </td>
+            <td><%=product.title%></td>
+            <td><%=product.description%></td>
+            <td><%=product.price%></td>
+            <td><%= form_with(url: cart_add_path) do |f| %>
+              <%= f.hidden_field :id, value: product.id %>
+              <%= f.number_field :quantity, value: 0, min: 1 %>
+              <%= f.submit "Add To Cart" %>
+            <% end %></td>
+              <% if user_signed_in? %>
+            <td><%= link_to  product.title, product %><td> 
+              <%end%>
+          <% end %>
+        </tr>
+        <%end%>
+      </tbody>
+    </table>
 </div>

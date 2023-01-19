@@ -22,7 +22,7 @@ class CartController < ApplicationController
         render turbo_stream: [turbo_stream.replace('cart',
                                                    partial: 'cart/cart',
                                                    locals: { cart: @cart }),
-                              turbo_stream.replace(@cart)]
+                              turbo_stream.replace(@products)]
       end
     end
   end

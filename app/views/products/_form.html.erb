@@ -1,42 +1,32 @@
-
-  <div class="container">
-    <div class="row align-items-center justify-content-center">
-      <div class="col-6">
-          <%= form_with model: @product do |c| %>
+<div class="container">
+  <div class="row align-items-center justify-content-center">
+    <div class="col-6">
+      <%= form_with model: @product do |c| %>
           <p>
             <%= c.label :status %><br>
             <%= c.select :status, ['public', 'private', 'archived'], selected: 'public' %>
           </p>
-
           <p>
             <%= c.label :Product, class:"form-label" %><br />
               <%= c.select :category_id, Category.all.map{|p| [p.name, p.id]}, options:{class: "pe-2" } %>
                 <%= c.select :brand_id, Brand.all.map{|p| [p.name, p.id]} %>
-
           </p>
-
           <p>
             <%= c.label :title, class:"form-label" %><br />
               <%= c.text_field :title, class:"form-control"%>
-              
           </p>
-
           <p>
             <%= c.label :description, class:"form-label" %><br />
               <%= c.text_field :description, class:"form-control"%>
           </p>
-
-
           <p>
             <%= c.label :price, class:"form-label" %><br />
               <%= c.text_field :price, class:"form-control"%>
           </p>
           <%= c.file_field :profile_image %>
-
           <%= c.submit %>
-
-            <% end %>
-      </div>
+      <% end %>
     </div>
   </div>
+</div>
 

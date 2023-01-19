@@ -36,3 +36,12 @@
     .cart{
     padding-right: 2rem;
     }
+    
+    .cartHead{
+        margin-top: 2rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding-top: 60px;
+      margin-bottom: 0;  
+    }
