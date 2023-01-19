@@ -31,6 +31,7 @@
             <th scope="col">Price :</th>
               <% if user_signed_in? %>
             <th scope="col">Products : </th>
+            <th scope="col">Details :</th>
               <%end%>
               <th scope="col"></th>
           </tr>
@@ -54,6 +55,7 @@
             <% end %></td>
               <% if user_signed_in? %>
             <td><%= link_to  product.title, product %><td> 
+
               <%end%>
           <% end %>
         </tr>
