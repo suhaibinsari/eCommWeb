@@ -1,3 +1,21 @@
+<section>
+  <div class="container">
+    <div class="section">
+      <div class="left-text">
+        <div class="vpn">
+          <h1 class="h1-eng">eCommerce Website <br> on Rails</h1>
+        </div>
+        <div class="exc">Exclusive offer: Get 3 extra months DISCOUNT</div>
+        <div>
+          <%= link_to 'Sign Up' , new_user_registration_path, class:"btn1"%>
+        </div>
+        <div class="money-back">30-DAY MONEY-BACK GUARANTEE</div>
+      </div>
+      <div class="right-img">
+        <%= image_tag "2.png" , class:"hero-img" %>
+      </div>
+    </div>
+</section>
 <div class="p">
 <h1>Product Page</h1>
 <h3 class="">All Products <%= Product.public_count %></h3>
@@ -40,6 +58,14 @@
     <td><%=product.title%></td>
     <td><%=product.description%></td>
     <td><%=product.price%></td>
+    <td>
+    <%= form_with(url: cart_add_path) do |f| %>
+      <%= f.hidden_field :id, value: product.id %>
+      <%= f.number_field :quantity, value: 0, min: 1 %>
+      <%= f.submit "Add To Cart" %>
+    <% end %>
+    
+    </td>
     <% if user_signed_in? %>
 
       <td><%= link_to  product.title, product %><td> 

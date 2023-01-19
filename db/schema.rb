@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_01_16_131643) do
+ActiveRecord::Schema[7.0].define(version: 2023_01_18_080627) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -46,22 +46,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_16_131643) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "cart_items", force: :cascade do |t|
-    t.integer "quantity"
-    t.integer "cart_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer "products_id"
-    t.index ["cart_id"], name: "index_cart_items_on_cart_id"
-    t.index ["products_id"], name: "index_cart_items_on_products_id"
-  end
-
   create_table "carts", force: :cascade do |t|
-    t.integer "total"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "users_id"
-    t.index ["users_id"], name: "index_carts_on_users_id"
   end
 
   create_table "categories", force: :cascade do |t|
@@ -82,10 +69,20 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_16_131643) do
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
+  create_table "orderables", force: :cascade do |t|
+    t.integer "product_id", null: false
+    t.integer "cart_id", null: false
+    t.integer "quantity"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["cart_id"], name: "index_orderables_on_cart_id"
+    t.index ["product_id"], name: "index_orderables_on_product_id"
+  end
+
   create_table "products", force: :cascade do |t|
     t.string "title"
     t.string "description"
-    t.integer "price"
+    t.float "price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "category_id"
@@ -109,9 +106,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_16_131643) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "cart_items", "products", column: "products_id"
-  add_foreign_key "carts", "users", column: "users_id"
   add_foreign_key "comments", "products"
   add_foreign_key "comments", "users"
+  add_foreign_key "orderables", "carts"
+  add_foreign_key "orderables", "products"
   add_foreign_key "products", "users"
 end
