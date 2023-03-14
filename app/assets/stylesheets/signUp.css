@@ -1,31 +1,43 @@
+.signUp {
+  position: relative;
+  background-color: white;
+  width: 70%;
+  margin: 0 auto;
+  margin-top: 10rem;
+  border-radius: 2rem;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  height: 55rem;
+}
 
+/* Add a media query for screens smaller than 768px (tablet size) */
+@media only screen and (max-width: 768px) {
   .signUp {
-    position: relative;
-    background-color: white;
-    width:70%; margin:0 auto;
-    margin-top: 10rem;
-    border-radius: 2rem;
-    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
-    height: 55rem;
+    width: 90%;
+    height: auto;
+    margin-top: 5rem;
+    display: none;
   }
-  
+}
+
+/* Add a media query for screens smaller than 576px (mobile size) */
+@media only screen and (max-width: 576px) {
+  .signUp {
+    width: 100%;
+    height: auto;
+    margin-top: 3rem;
+    border-radius: 0;
+    box-shadow: none;
+  }
+
   .divider:after,
   .divider:before {
-  content: "";
-  flex: 1;
-  height: 1px;
-  background: #eee;
+    display: none;
   }
-  
-  
+
   .signInTxt {
-  margin-top: 50px;
-    /* position: absolute; */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding-top: 60px;
-  margin-bottom: 0;
-    
+    margin-top: 2rem;
+    padding-top: 2rem;
   }
-  
+}

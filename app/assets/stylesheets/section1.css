@@ -1,9 +1,11 @@
+/* Default styles for all screen sizes */
 .section {
   margin-top: 5rem;
   display: flex;
   align-items: center;
   position: relative;
 }
+
 .section > .left-text {
   display: flex;
   flex-direction: column;
@@ -12,11 +14,13 @@
   width: 60%;
   margin-bottom: 10rem;
 }
+
 .vpn {
   font-size: 4em;
   margin-bottom: 1em;
   line-height: normal;
 }
+
 .h1-eng {
   font-size: 4rem;
   width: 100%;
@@ -27,9 +31,11 @@
   font-size: 1.3rem;
   margin-top: -4rem;
 }
+
 .money-back {
   font-size: 0.8rem;
 }
+
 .btn1 {
   background-color: orange;
   border: none;
@@ -44,14 +50,61 @@
   margin: 4px 2px;
   cursor: pointer;
 }
+
 .btn1:hover {
   transition: 0.2s;
   background-color: yellow;
   color: black;
 }
+
 .section > .right-img {
   display: flex;
   justify-content: flex-end;
   height: 40rem;
   width: 50%;
+}
+
+/* Media query for screens smaller than 768px (tablets) */
+@media only screen and (max-width: 768px) {
+  .section {
+    flex-direction: column;
+    margin-top: 3rem;
+  }
+
+  .section > .left-text {
+    width: 100%;
+    margin-bottom: 5rem;
+  }
+
+  .section > .right-img {
+    justify-content: center;
+    height: auto;
+    width: 100%;
+    display: none;
+  }
+
+  .btn1 {
+    padding: 0.1rem 6rem;
+  }
+}
+
+/* Media query for screens smaller than 576px (mobile devices) */
+@media only screen and (max-width: 576px) {
+  .section > .left-text {
+    line-height: 3rem;
+    margin-bottom: 3rem;
+  }
+
+  .vpn {
+    font-size: 3em;
+  }
+
+  .h1-eng {
+    font-size: 2.5rem;
+  }
+
+  .btn1 {
+    padding: 0.1rem 4rem;
+    font-size: 1rem;
+  }
 }
