@@ -1,0 +1,16 @@
+.p-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5rem;
+}
+
+.count {
+  border: 1px solid black;
+  padding: 10px 10px 10px 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+  color: white;
+}

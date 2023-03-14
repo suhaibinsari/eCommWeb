@@ -3,10 +3,10 @@
   <table class="table table-striped table-bordered table-hover"> 
     <thead > 
       <tr class="table-dark">
-        <th scope="col">Name : <%= @brand.name%></th>
-        <th scope="col">Body : <%= @brand.body%></th>
-        <th scope="col"><%= link_to "Edit", edit_brand_path(@brand) %></th>
-        <th><%= link_to "Destroy", brand_path(@brand), data: {
+        <th scope="col">Name: <%= @brand.name%></th>
+        <th scope="col">Body: <%= @brand.body%></th>
+        <th scope="col"><%= link_to "Edit", edit_brand_path(@brand), class: "btn btn-warning container" %></th>
+        <th><%= link_to "Destroy", brand_path(@brand), class: "btn btn-danger container", data: {
                           turbo_method: :delete,
                           turbo_confirm: "Are you sure?"
                         } %></th>

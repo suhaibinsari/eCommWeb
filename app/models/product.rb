@@ -8,7 +8,6 @@ class Product < ApplicationRecord
     belongs_to :brand
     has_one_attached :profile_image  
     has_many :comments, dependent: :destroy
-    # belongs_to :cart_items
     has_many :orderables
     has_many :carts, through: :orderables
 

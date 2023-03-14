@@ -5,15 +5,20 @@ Rails.application.routes.draw do
   }
 
 
-  resources :products 
-  resources :contacts,       only: [:new, :create]
+  resources :products do
+    get 'search' , on: :member
+  end
+  resources :contacts,   only: [:new, :create]
   resources :brands
   resources :categories
   resources :comments
 
+
+
   get 'cart', to: 'cart#show'
   post 'cart/add'
   post 'cart/remove'
+  post 'checkout/create', to: 'checkout#create'
 
   get 'about'=> 'pages#about_us'
   get 'donate' => 'pages#donate'

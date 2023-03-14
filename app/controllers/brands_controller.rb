@@ -14,7 +14,10 @@ class BrandsController < ApplicationController
   end
  
   def create
-    @brand = Brand.new(brand_params)
+    @brand = Brand.new(
+      name: params[:brand][:name], 
+      body: params[:brand][:body]
+    )
     # @category.user = current_user
       if @brand.save!
         redirect_to brands_path
@@ -45,8 +48,8 @@ class BrandsController < ApplicationController
 
    private
  
-     def brand_params
-       params.require(:brand).permit(:name, :body)
-     end
+  #  def brand_params
+  #   params.require(:brand).permit(:name, :body)
+  # end
      
 end

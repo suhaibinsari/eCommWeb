@@ -1,30 +1,35 @@
 <div class="p">
   <h1>Category Page</h1>
     <% if user_signed_in? %>
-    <%= link_to "Create New Catagory", new_category_path, class: "btn btn-primary mb-4" %>
-    <%= link_to "Brands", brands_path, class: "btn btn-primary mb-4" %>        
+    <%= link_to "Add new Catagory", new_category_path, class: "btn btn-success mb-4" %>
+    <%= link_to "Go to Brands", brands_path, class: "btn btn-primary mb-4" %>        
     <%end%>
   <table class="table table-striped table-bordered table-hover"> 
     <thead > 
       <tr class="table-dark">
-        <th scope="col">Name :</th>
-        <th scope="col">Body :</th>
+        <th scope="col">Category Name </th>
+        <th scope="col">Body </th>
         <% if user_signed_in? %>
-        <th scope="col">Category : </th>
+        <th scope="col">Edit Category </th>
         <%end%>
           <th scope="col"> </th>
       </tr>
     </thead>
+          <% @categories.each do |category| %>
     <tbody>
-      <% @categories.each do |category| %>
-      <tr>
-      <td><%=category.name%></td>
-      <td><%=category.body%></td>
-         <% if user_signed_in? %>
-      <td><%= link_to  category.name, category %><td>
-         <%end%>
-      </tr>
-        <%end%>
+        <tr>
+          <td><%=category.name%></td>
+          <td><%=category.body%></td>
+          <% if user_signed_in? %>
+            <td>
+            <%= button_to category.name, category_path(category),
+                          method: :get,
+                          class: "btn btn-warning" %>
+            </td>
+          <%end%>
+          <td></td>
+        </tr>
     </tbody>
+          <%end%>
   </table>
 </div>

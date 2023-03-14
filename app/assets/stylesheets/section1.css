@@ -20,6 +20,7 @@
 .h1-eng {
   font-size: 4rem;
   width: 100%;
+  font-weight: 700;
 }
 
 .exc {
@@ -30,7 +31,7 @@
   font-size: 0.8rem;
 }
 .btn1 {
-  background-color: #4caf50;
+  background-color: orange;
   border: none;
   border-radius: 50em;
   color: white;

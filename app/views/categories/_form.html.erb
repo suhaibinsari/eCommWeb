@@ -2,10 +2,7 @@
   <div class="row align-items-center justify-content-center">
     <div class="col-6">
       <%= form_with model: category do |c| %>
-        <p>
-          <%= c.label :Category, class:"form-label" %><br />
-            
-        </p>
+
         <p>
           <%= c.label :name, class:"form-label" %><br />
             <%= c.text_field :name, class:"form-control"%>           

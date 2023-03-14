@@ -7,9 +7,12 @@
             <%= c.select :status, ['public', 'private', 'archived'], selected: 'public' %>
           </p>
           <p>
-            <%= c.label :Product, class:"form-label" %><br />
+            <%= c.label :Products, class:"form-label" %><br />
               <%= c.select :category_id, Category.all.map{|p| [p.name, p.id]}, options:{class: "pe-2" } %>
-                <%= c.select :brand_id, Brand.all.map{|p| [p.name, p.id]} %>
+            </p>
+            <p>              
+            <%= c.label :Brands, class:"form-label" %><br />
+              <%= c.select :brand_id, Brand.all.map{|p| [p.name, p.id]} %>
           </p>
           <p>
             <%= c.label :title, class:"form-label" %><br />
@@ -23,8 +26,10 @@
             <%= c.label :price, class:"form-label" %><br />
               <%= c.text_field :price, class:"form-control"%>
           </p>
+          <p class = "container-fluid d-flex justify-content-center align-items-center">
           <%= c.file_field :profile_image %>
-          <%= c.submit %>
+          <%= c.button "Submit", type: "submit", :class=> "btn btn-info" %>
+          </p>
       <% end %>
     </div>
   </div>

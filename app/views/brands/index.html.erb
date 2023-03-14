@@ -1,29 +1,36 @@
 <div class="p">
     <h1>Brand Page</h1>
     <% if user_signed_in? %>
-    <%= link_to "create new", new_brand_path, class: "btn btn-primary mb-4" %>
+    <%= link_to "Add new Brands", new_brand_path, class: "btn btn-success mb-4" %>
+    <%= link_to "Back to Catagory", categories_path, class: "btn btn-primary mb-4" %>
     <%end%>
       <table class="table table-striped table-bordered table-hover"> 
         <thead > 
           <tr class="table-dark">
-            <th scope="col">Name :</th>
-            <th scope="col">Body :</th>   
+            <th scope="col">Brand Name </th>
+            <th scope="col">Body </th>   
               <% if user_signed_in? %>
-            <th scope="col">Brands : </th>
+            <th scope="col">Edit Brand  </th>
               <%end%>
               <th scope="col"></th>
           </tr>
         </thead>
+    <% @brands.each do |brand| %>
       <tbody>
-      <% @brands.each do |brand| %>
         <tr>
           <td><%=brand.name%></td>
           <td><%=brand.body%></td>
-          <% if user_signed_in? %>
-          <td><%= link_to  brand.name, brand %><td> 
+
+          <% if user_signed_in? %>                     
+           <td>
+            <%= button_to brand.name, brand_path(brand),
+                          method: :get,
+                          class: "btn btn-warning" %>
+            </td>
           <%end%>
+          <td></td>
         </tr>
-          <%end%>
       </tbody>
+    <%end%>
   </table>
 </div>

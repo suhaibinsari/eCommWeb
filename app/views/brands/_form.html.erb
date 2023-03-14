@@ -1,10 +1,8 @@
 <div class="container">
-  <div class="row align-items-center justify-content-center">
+  <div class="row align-items-center justify-content-center ">
     <div class="col-6">
       <%= form_with model: @brand do |c| %>
-        <p>
-          <%= c.label :Brand, class:"form-label" %><br />
-        </p>
+
         <p>
           <%= c.label :name, class:"form-label" %><br />
             <%= c.text_field :name, class:"form-control"%>
