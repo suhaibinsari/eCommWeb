@@ -8,8 +8,8 @@
         <thead > 
           <tr class="table-dark">
             <th scope="col">Brand Name </th>
+            <% if user_signed_in? %>
             <th scope="col">Body </th>   
-              <% if user_signed_in? %>
             <th scope="col">Edit Brand  </th>
               <%end%>
               <th scope="col"></th>
@@ -19,10 +19,9 @@
       <tbody>
         <tr>
           <td><%=brand.name%></td>
-          <td><%=brand.body%></td>
-
           <% if user_signed_in? %>                     
-           <td>
+          <td><%=brand.body%></td>
+           <td> 
             <%= button_to brand.name, brand_path(brand),
                           method: :get,
                           class: "btn btn-warning" %>

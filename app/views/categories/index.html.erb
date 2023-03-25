@@ -8,8 +8,8 @@
     <thead > 
       <tr class="table-dark">
         <th scope="col">Category Name </th>
-        <th scope="col">Body </th>
         <% if user_signed_in? %>
+        <th scope="col">Body </th>
         <th scope="col">Edit Category </th>
         <%end%>
           <th scope="col"> </th>
@@ -19,8 +19,8 @@
     <tbody>
         <tr>
           <td><%=category.name%></td>
-          <td><%=category.body%></td>
           <% if user_signed_in? %>
+          <td><%=category.body%></td>
             <td>
             <%= button_to category.name, category_path(category),
                           method: :get,

@@ -11,4 +11,9 @@ class Product < ApplicationRecord
     has_many :orderables
     has_many :carts, through: :orderables
 
+    def self.ransackable_attributes(auth_object = nil)
+        # List the attributes that you want to make searchable
+        %w[description price title ]
+      end
+
 end

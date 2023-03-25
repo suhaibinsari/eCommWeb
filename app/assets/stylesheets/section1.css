@@ -64,6 +64,13 @@
   width: 50%;
 }
 
+.search{
+  background-color: orange;
+  border-radius: 5px;
+  color: white;
+
+}
+
 /* Media query for screens smaller than 768px (tablets) */
 @media only screen and (max-width: 768px) {
   .section {

@@ -2,6 +2,13 @@ class ApplicationController < ActionController::Base
 
   before_action :set_render_cart
   before_action :initialize_cart
+  before_action :set_query
+
+
+  def set_query
+    @query = Product.ransack(params[:q])
+
+  end
 
   def set_render_cart
     @render_cart = true
