@@ -12,8 +12,12 @@ class Product < ApplicationRecord
     has_many :carts, through: :orderables
 
     def self.ransackable_attributes(auth_object = nil)
-        # List the attributes that you want to make searchable
-        %w[description price title ]
-      end
+      # Allowlist only non-sensitive attributes that are needed for searching
+      %w[id title description price created_at updated_at status category_id brand_id user_id]
+    end
 
+    def self.ransackable_associations(auth_object = nil)
+      ['category', 'brand', 'title']
+    end
+  
 end
