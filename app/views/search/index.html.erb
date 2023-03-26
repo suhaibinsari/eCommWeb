@@ -1,5 +1,7 @@
 <div class="p">
+<% if user_signed_in? %>
 <h1 class="text-center"><%= pluralize(@products.count, "Result") %></h1>
+<%end%>
 <div class="container">
 <%= render 'search/form' %>
 
@@ -8,8 +10,10 @@
       <tr>
         <th><%= sort_link(@query, :title, "Title", default_order: :asc) %></th>
         <th><%= sort_link(@query, :category_name, "Category") %></th>
-        <th><%= sort_link(@query, :body, "Brand") %></th>
+        <th><%= sort_link(@query, :body, "Price") %></th>
+        <% if user_signed_in? %>
         <th><%= sort_link(@query, :user_full_name, "Users") %></th>
+        <%end%>
       </tr>
     </thead>
     <tbody>
@@ -18,8 +22,9 @@
           <td><%= link_to post.title, post %></td>
           <td><%= link_to post.description%></td>
           <td><%= link_to post.price%></td>
+          <% if user_signed_in? %>
           <td><%= link_to post.user.email%></td>
-
+          <%end%>
         </tr>
       <% end %>
     </tbody>

@@ -1,0 +1,15 @@
+.s{
+    display: flex;
+align-items: center;
+justify-content: center;
+margin-bottom: 2rem;
+}
+.searchBar{
+    border: 1px solid black;
+    border-radius: 0.5rem;
+    padding-left: 1rem;
+}
+.btnSearch{
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+}
