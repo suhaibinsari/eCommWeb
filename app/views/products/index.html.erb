@@ -3,7 +3,7 @@
     <div class="section">
       <div class="left-text">
         <div class="vpn">
-          <h1 class="h1-eng">eCommerce Website <br> on Rails</h1>
+          <h1 class="h1-eng">END OF SEASON Summer SALE <br> upto 50% off</h1>
         </div>
         <div class="exc">Exclusive offer: Get 3 extra months DISCOUNT</div>
         <div>
@@ -16,11 +16,10 @@
       </div>
     </div>
 </section>
-
 <div >
+</div>
 
-  </div>
-   <div class="container-fluid pt-5 pb-3 bordered">
+  <div class="container-fluid pt-5 pb-3 bordered">
   <h2 class="section-title position-relative text-uppercase mx-xl-5 mb-4">
   <h3 class="count">Number of Products <%= Product.public_count %></h3>
   </h2>
@@ -40,7 +39,7 @@
                 <h5><%= product.description %></h5>
               </div>
               <div class="d-flex align-items-center justify-content-center mt-2">
-                <h5>$<%= product.price %></h5>
+                <h5>Rs <%= product.price %></h5>
               </div>
                 <%= form_with(url: cart_add_path) do |f| %>
 

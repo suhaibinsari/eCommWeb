@@ -25,12 +25,12 @@
 }
 
 .head {
-  /* background-color: #c4ebf1; */
+  background-color: red;
   height: 40rem;
   margin: 0 auto;
   position: absolute;
   width: 100%;
-  background-image: url(back.png);
+  /* background-image: url(back.png); */
   top: 5px;
 }
 
@@ -54,6 +54,6 @@
   border-radius: 1rem;
 }
 
-padding-right: 20px; 
+/* padding-right: 20px; */
 
 
